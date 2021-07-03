@@ -1,2 +1,4 @@
-# misc
- Personal cheat sheets
+# Archive
+```python
+memory = f"remember {archive}"
+```
