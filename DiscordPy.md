@@ -29,4 +29,52 @@ bot.run('TOKEN') # Run function
 Cogs are basically files with classes/functions and commands in them. Use cogs to split different command groups.
 
 
+## File Structure
+
+```
+main>
+    cogs>
+    data>
+```
+Main folder with the main python file in it. Then cogs/data folders.
+
+```python
+import os
+os.chdir("path") # Probably bad convention but I did this.
+```
+
+
+## Cog Creation
+
+#### Initialization
+
+```python
+class ModCommands(commands.Cog): # Must create a class with commands.Cog
+    def __init__(self, bot): # Initialize bot function
+        self.bot = bot
+        print("Moderation files attempting to load...")
+
+    #
+    # code stuff here
+    #
+
+def setup(bot): # This MUST go at the bottom of every cog file.
+    bot.add_cog(ModCommands(bot))
+```
+
+#### Event/Handlers
+
+```python
+@commands.command() # Identifier for creating any and all commands
+@has_permissions(manage_messages=True) # Simple permissions identifier
+```
+All commands must begin with @commands.command() before the function
+```python
+@commands.command()
+def coolFunction():
+    print("I do cool stuff")
+```
+
+
+
 
