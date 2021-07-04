@@ -8,7 +8,7 @@ Most of this assumes the main application is setup using the Qt Design Studio co
 Python Modules
 ```python
 from PySide2.QtGui import QGuiApplication # Base module (Automatically added by Qt Designer)
-from PySide2.QtQml import QQmlApplicationEngine # Base modules (Automatically added by Qt Designer)
+from PySide2.QtQml import QQmlApplicationEngine # Base module (Automatically added by Qt Designer)
 from PySide2.QtCore import QObject, Slot, Signal, QTimer, QUrl # Helper modules added by Qt Designer
 ```
 
@@ -23,7 +23,7 @@ import QtQuick.Controls 2.15
 
 ##### Connections
 
-This creates a simple connection to Qml called "backend". This can later be connected to python code to run functions in python. 
+This creates a simple connection from Qml to Python called "backend". This can later be connected to python code to run functions in python. 
 ```qml
 Connections{
     target: backend
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     
     # Context
     main = MainWindow() # This class needs to be created first. Check below.
-    engine.rootContext().setContextProperty("backend", main)
+    engine.rootContext().setContextProperty("backend", main) # Here is where "backend" is created and linked to the main variable which is the MainWindow() class with python functions.
 
     # Engine Load
     engine.load(os.fspath(Path(__file__).resolve().parent / "qml/main.qml"))
@@ -61,4 +61,30 @@ class MainWindow(QObject):
 
 ```qml
 // Add QML connection onClicked example here.
+```
+
+Enables a Qml entity to be used to drag the application around.
+```qml
+DragHandler{
+    onActiveChanged: if (active){
+                         mainWindow.startSystemMove()
+                     }
+}
+```
+
+##### Animations/Style
+
+```qml
+PropertyAnimation{
+    id: menuAnim // Id of the animation
+    target: titleBarDivider // Target a qml entity to animate
+    property: "height" // Choose property to animate
+    to: if(titleBarDivider.height < 100) return 110; else return 20 // Can take simple values and functions
+    // to: 100
+    duration: 700 // Time taken for animation to carry out
+    easing.type: Easing.InOutQuint // Easing type is a bunch of different cool animations you can easily set.
+}
+```
+```qml
+    onClicked: menuAnim.running = true // Enables the animation when clicked.
 ```
