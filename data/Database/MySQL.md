@@ -27,3 +27,33 @@ my_cursor = database.cursor()
 ```
 
 
+### Commands/Code
+
+```python
+cursor.execute("CREATE TABLE master (apps VARCHAR(100), username VARCHAR(50), email VARCHAR(50), user_id INTEGER AUTO_INCREMENT PRIMARY KEY)")
+```
+
+```python
+variable = "INSERT INTO master (apps, username, email, password) VALUES (%s, %s, %s, %s)" # Insertion command (%s) replaced with variables
+variable2 = ("Reddit", "CoolUser", "email@email.com", "password") # used to replace %s
+db_cursor.execute(variable, variable2) # execution command for inserting into database
+```
+
+```python
+db_cursor.execute("SELECT apps FROM master")
+```
+
+Saves all database changes.
+```python
+db.commit() # saves database
+```
+
+
+```python
+insert_into_database = """ININTO master (apps, username, empassword)
+VALUES(?, ?, ?, ?)"""
+```
+
+```python
+ALTER TABLE cool_table ADD a_column VARCHAR(255)
+```
