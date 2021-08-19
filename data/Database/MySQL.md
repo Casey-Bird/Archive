@@ -47,7 +47,9 @@ Saves all database changes.
 ```python
 db.commit() # saves database
 ```
-
+```python
+"UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'"
+```
 
 ```python
 insert_into_database = """ININTO master (apps, username, empassword)
