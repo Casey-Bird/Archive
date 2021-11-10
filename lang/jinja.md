@@ -5,6 +5,13 @@ Simple variable
 <h1>Hello {{ user_name }}</h1>
 ```
 
+Loading CSS into HTML with jinja
+A 'static' folder needs to be created at the root of the directory, next to templates.
+```html
+<link href = "{{ url_for('static', filename='base.css') }}" rel = "stylesheet">
+```
+
+
 ## Filters
 
 Filters are basically functions that can be used on variables while inside of html code. Google "jinja2 filters" to see them all.
@@ -30,4 +37,16 @@ These are logic blocks that show how to perform functions while still coding in 
 {% else %}
   {{ topping = "Else stuff"}}
 {% endif %} # TODO MAKE SURE TO END EVERY BIT OF CODE LOGIC
+```
+
+
+# Persistent pages
+
+Block is an identifier 
+```html
+{% extends 'base.html' %} # This is how you can inherit the original Block from base.html and persist it through all pages using the content Block.
+
+{% block content %}
+    page code in here
+{% endblock %}
 ```

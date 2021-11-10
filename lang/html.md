@@ -1,16 +1,27 @@
+## Setup
 
-Simple html 5 file
+Basic html file setup
 ```html
-<!DOCTYPE>
-<head></head>
-<body>
-	<h1>Hello World</h1>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cool Title</title>
+		<meta charset = "UTF-8" />
+	</head>
+	<body>
+		
+	
+	</body>
+</html>
 
 ```
+## General Tags
 
+```html
+<link href = "css/styles.css" rel = "stylesheet" type = "text/css">
+```
 
-Accessibility tags
+## Accessibility tags
 ```html
 <abbr title = "Cascading Style Sheets"> CSS </abbr>
 ```
