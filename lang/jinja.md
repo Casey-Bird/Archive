@@ -9,7 +9,7 @@ Simple variable
 
 Filters are basically functions that can be used on variables while inside of html code. Google "jinja2 filters" to see them all.
 ```html
-<h1>Hello {{ user_name||upper }}</h1>
+<h1>Hello {{ user_name|upper }}</h1>
 ```
 
 # Logic Inside of HTML using Jinja

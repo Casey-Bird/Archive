@@ -27,3 +27,11 @@ def user_route(name): # Takes in that <name> variable from the route parameter.
     return render_template("user.html", user_name = name) # user_name is being passed into a {{ user_name }} jinja variable on the frontend
 
 ```
+
+## Error Handling
+
+```python
+@app.errorhandler(404) # Pass in the error code that should be handled
+def page_not_found(error):
+    return render_template("views/404_error.html"), 404 # Error code goes back into function, idk why this exists 
+```
