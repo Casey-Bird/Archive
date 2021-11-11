@@ -11,6 +11,12 @@ A 'static' folder needs to be created at the root of the directory, next to temp
 <link href = "{{ url_for('static', filename='base.css') }}" rel = "stylesheet">
 ```
 
+# Links
+
+```html
+<a href = "link/goes/here">Home</a>
+```
+
 
 ## Filters
 
